@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NeuroPath</title>
+</head>
+<body>
+  <h1>NeuroPath</h1>
+  <p id="status">checking api...</p>
+  <button id="file-upload">Upload File</button>
+
+  <script>
+    fetch("http://localhost:8000/health")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("status").textContent = "API: " + data.status
+      })
+      .catch(() => {
+        document.getElementById("status").textContent = "API: unreachable"
+      })
+    
+    document.getElementById("file-upload").addEventListener("click", () => {
+      const input = document.createElement("input")
+      input.type = "file"
+      input.onchange = e => {
+        const file = e.target.files[0]
+        const formData = new FormData()
+        formData.append("file", file)
+
+        fetch("http://localhost:8000/upload", {
+          method: "POST",
+          body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+          alert("File uploaded successfully: " + data.filename)
+        })
+        .catch(() => {
+          alert("File upload failed.")
+        })
+      }
+      input.click()
+    })
+
+
+  </script>
+</body>
+</html>

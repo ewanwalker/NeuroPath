@@ -1,0 +1,12 @@
+services:
+  frontend:
+    build: .
+    ports:
+      - "3000:80"
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "8000:8000"
