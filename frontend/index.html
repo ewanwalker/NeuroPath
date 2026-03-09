@@ -1,48 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>NeuroPath</title>
-</head>
-<body>
-  <h1>NeuroPath</h1>
-  <p id="status">checking api...</p>
-  <button id="file-upload">Upload File</button>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>NeuroPath</title>
+  </head>
+  <body>
+    <h1>NeuroPath</h1>
+      <div id="render-container">
+      <img id="brain-render" alt="Brain render" hidden>
+      <div id="render-placeholder"><span>No scan loaded</span></div>
+      <input type="range" id="slice-slider" min="0" value="0" style="display:none; width:100%">
+    </div>
+    <p id="status">checking api...</p>
+    <div class="controls">
+      <label>
+        Axis
+        <select id="axis-select">
+          <option value="2">Axial (z)</option>
+          <option value="0">Sagittal (x)</option>
+          <option value="1">Coronal (y)</option>
+        </select>
+      </label>
+      <label>
+        Step
+        <input type="number" id="step-input" value="1" min="1" max="10">
+      </label>
+    </div>
+    <button id="file-upload">Upload File</button>
+    <p id="output">Placeholder Output</p>
+    <script src="/js/scripts.js"></script>
 
-  <script>
-    fetch("http://localhost:8000/health")
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById("status").textContent = "API: " + data.status
-      })
-      .catch(() => {
-        document.getElementById("status").textContent = "API: unreachable"
-      })
-    
-    document.getElementById("file-upload").addEventListener("click", () => {
-      const input = document.createElement("input")
-      input.type = "file"
-      input.onchange = e => {
-        const file = e.target.files[0]
-        const formData = new FormData()
-        formData.append("file", file)
-
-        fetch("http://localhost:8000/upload", {
-          method: "POST",
-          body: formData
-        })
-        .then(res => res.json())
-        .then(data => {
-          alert("File uploaded successfully: " + data.filename)
-        })
-        .catch(() => {
-          alert("File upload failed.")
-        })
-      }
-      input.click()
-    })
-
-
-  </script>
-</body>
+  </body>
+  <footer>
+    <p>NeuroPath &copy; 2024</p>
+  </footer>
 </html>

@@ -1,0 +1,98 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+h1 {
+    font-size: 2em;
+    color: blue;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#render-container {
+    position: relative;
+    margin: 20px auto;
+    width: 40%;
+}
+
+#brain-render {
+    width: 100%;
+    display: block;
+}
+
+#render-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    background: #111;
+    color: #666;
+}
+
+#slice-slider {
+    width: 100%;
+    margin-top: 8px;
+}
+
+/* ── Status & controls ────────────────────────────────────── */
+#status {
+    text-align: center;
+    margin: 12px 0 6px;
+    font-size: 0.9em;
+    color: #888;
+}
+
+#file-upload {
+    display: block;
+    margin: 0 auto 6px;
+    padding: 8px 24px;
+    background: #111;
+    border: 1px solid #333;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 0.95em;
+    border-radius: 3px;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+#file-upload:hover {
+    border-color: blue;
+    color: #fff;
+}
+
+.upload-hint {
+    text-align: center;
+    font-size: 0.72em;
+    color: #555;
+    margin-bottom: 16px;
+}
+
+#output {
+    font-family: monospace;
+    font-size: 0.78em;
+    color: #666;
+    white-space: pre-wrap;
+    text-align: center;
+    padding: 8px 16px;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.75em;
+    color: #444;
+    margin-top: 24px;
+    border-top: 1px solid #1a1a1a;
+}
