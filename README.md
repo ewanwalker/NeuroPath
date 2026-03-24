@@ -1,7 +1,5 @@
 # NeuroPath
 
-Upload a brain MRI scan and explore the lesion in 3D — with predicted effects on downstream white matter pathways.
-
 Built on top of my [MSc dissertation](https://github.com/ewanwalker/Automated-Lesion-Masking-Script) on automated lesion delineation and tractography at Newcastle University.
 
 > **Status:** Active development
