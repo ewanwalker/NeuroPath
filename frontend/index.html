@@ -9,6 +9,7 @@
     <title>NeuroPath</title>
   </head>
   <body>
+ 
     <header class="np-header">
       <h1 class="np-title">NeuroPath</h1>
       <div class="np-status">
@@ -16,30 +17,98 @@
         <span id="api-health">checking...</span>
       </div>
     </header>
+ 
+    <nav class="np-sidenav">
+      <span class="np-nav-group-label">Imaging</span>
+ 
+      <div class="np-nav-item active" data-target="section-viewer">
+        Scan Viewer
+      </div>
+ 
+      <div class="np-nav-item" data-target="section-analysis">
+        Analysis
+      </div>
+ 
+      <div class="np-nav-divider"></div>
+      <span class="np-nav-group-label">Patient</span>
+ 
+      <div class="np-nav-item" data-target="section-records">
+        Records
+      </div>
+ 
+      <div class="np-nav-divider"></div>
+      <span class="np-nav-group-label">System</span>
+ 
+      <div class="np-nav-item" data-target="section-settings">
+        Settings
+      </div>
+    </nav>
+ 
+    <main>
 
-    <div id="render-container">
-      <img id="brain-render" hidden>
-      <div id="render-placeholder"><span>No scan loaded</span></div>
-    </div>
-    <input type="range" id="slice-slider" min="0" value="0" style="display:none; width:100%">
-    <div class="controls">
-      <label>
-        Axis
-        <select id="axis-select">
-          <option value="2">Axial (z)</option>
-          <option value="0">Sagittal (x)</option>
-          <option value="1">Coronal (y)</option>
-        </select>
-      </label>
-      <label>
-        Step
-        <input type="number" id="step-input" value="1" min="1" max="10">
-      </label>
-    </div>
-    <button id="file-upload">Upload File</button>
-    <script src="/js/scripts.js" defer></script>
-  </body>
-  <footer>
-    <p>NeuroPath &copy; 2026</p>
-  </footer>
+      <section class="np-section active" id="section-viewer">
+        <div id="render-container">
+          <img id="brain-render" hidden>
+          <div id="render-placeholder"><span>No scan loaded</span></div>
+        </div>
+        <input type="range" id="slice-slider" min="0" value="0" style="display:none">
+        <div class="controls">
+          <label>
+            Axis
+            <select id="axis-select">
+              <option value="2">Axial (z)</option>
+              <option value="0">Sagittal (x)</option>
+              <option value="1">Coronal (y)</option>
+            </select>
+          </label>
+          <label>
+            Step
+            <input type="number" id="step-input" value="1" min="1" max="10">
+          </label>
+        </div>
+        <button id="file-upload">Upload File</button>
+      </section>
+ 
+      <section class="np-section" id="section-segments">
+        <p class="section-heading">Segmentation</p>
+        <div class="np-placeholder">
+          <span class="np-placeholder-tag">Module</span>
+        </div>
+      </section>
+ 
+      <section class="np-section" id="section-analysis">
+        <p class="section-heading">Analysis</p>
+        <div class="np-placeholder">
+          <span class="np-placeholder-tag">Module</span>
+        </div>
+      </section>
+ 
+      <section class="np-section" id="section-records">
+        <p class="section-heading">Patient Records</p>
+        <div class="np-placeholder">
+          <span class="np-placeholder-tag">Data</span>
+        </div>
+      </section>
+ 
+      <section class="np-section" id="section-history">
+        <p class="section-heading">Session History</p>
+        <div class="np-placeholder">
+          <span class="np-placeholder-tag">Log</span>
+        </div>
+      </section>
+
+      <section class="np-section" id="section-settings">
+        <p class="section-heading">Settings</p>
+        <div class="np-placeholder">
+          <span class="np-placeholder-tag">Config</span>
+        </div>
+      </section>
+ 
+    </main>
+ 
+    <footer>
+      <p>NeuroPath &copy; 2026</p>
+    </footer>
+
+    <script src="/js/scripts.js"></script>
 </html>

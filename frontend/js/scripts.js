@@ -5,6 +5,9 @@ const label       = document.getElementById('api-health');
 const img         = document.getElementById('brain-render');
 const slider      = document.getElementById('slice-slider');
 const placeholder = document.getElementById('render-placeholder');
+const navItems    = document.querySelectorAll('.np-nav-item[data-target]');
+const sections    = document.querySelectorAll('.np-section');
+
 
 // Health check
 fetch(`${API_BASE}/health`)
@@ -57,4 +60,15 @@ const axisLabels = { "0": "x", "1": "y", "2": "z" };
 document.getElementById('axis-select').addEventListener('change', ({ target }) => {
   const label = axisLabels[target.value] ?? 'z';
   placeholder.textContent = `Axis: ${label}`;
+});
+
+// Navigation
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    navItems.forEach(n => n.classList.remove('active'));
+    sections.forEach(s => s.classList.remove('active'));
+    item.classList.add('active');
+    const target = document.getElementById(item.dataset.target);
+    if (target) target.classList.add('active');
+  });
 });
