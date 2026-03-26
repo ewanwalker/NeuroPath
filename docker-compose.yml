@@ -1,20 +1,10 @@
 services:
-  frontend:
+  app:
     build: .
-    ports:
-      - "3000:80"
-    depends_on:
-      api:
-        condition: service_healthy
-
-  api:
-    build:
-      context: .
-      dockerfile: Dockerfile.api      
     ports:
       - "8000:8000"
     volumes:
-      - api_data:/app/data
+      - app_data:/app/data
       - ./structural_pipeline.sh:/app/structural_pipeline.sh
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
@@ -22,7 +12,6 @@ services:
       timeout: 5s
       retries: 3
       start_period: 10s
-    
 
 volumes:
-  api_data:
+  app_data:

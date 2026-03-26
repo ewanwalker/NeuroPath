@@ -8,7 +8,6 @@ const placeholder = document.getElementById('render-placeholder');
 const navItems    = document.querySelectorAll('.np-nav-item[data-target]');
 const sections    = document.querySelectorAll('.np-section');
 
-
 // Health check
 fetch(`${API_BASE}/health`)
   .then(r => r.json())
