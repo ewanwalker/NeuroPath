@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>{% block title %}NeuroPath{% endblock %}</title>
+  </head>
+  <body>
+ 
+    <header class="np-header">
+      <h1 class="np-title">NeuroPath</h1>
+      <div class="np-status">
+        <span class="np-dot" id="api-dot"></span>
+        <span id="api-health">checking...</span>
+      </div>
+    </header>
+ 
+    <nav class="np-sidenav">
+      <span class="np-nav-group-label">Imaging</span>
+ 
+      <a href="{{ url_for('viewer') }}" class="np-nav-item {% if request.endpoint == 'viewer' %}active{% endif %}">
+        Toolbox
+      </a>
+ 
+      <a href="{{ url_for('analysis') }}" class="np-nav-item {% if request.endpoint == 'analysis' %}active{% endif %}">
+        Analysis
+      </a>
+ 
+      <div class="np-nav-divider"></div>
+      <span class="np-nav-group-label">Patient</span>
+ 
+      <a href="{{ url_for('records') }}" class="np-nav-item {% if request.endpoint == 'records' %}active{% endif %}">
+        Records
+      </a>
+ 
+      <div class="np-nav-divider"></div>
+      <span class="np-nav-group-label">System</span>
+ 
+      <a href="{{ url_for('settings') }}" class="np-nav-item {% if request.endpoint == 'settings' %}active{% endif %}">
+        Settings
+      </a>
+    </nav>
+ 
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+ 
+    <footer>
+      <p>NeuroPath &copy; 2026</p>
+    </footer>
+    {% block scripts %}
+      <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    {% endblock %}
+  </body>
+</html>

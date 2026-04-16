@@ -10,7 +10,7 @@ Built on top of my [MSc dissertation](https://github.com/ewanwalker/Automated-Le
 
 - **Backend** — Python, FastAPI, FSL, NiBabel
 - **Frontend** — React, Three.js
-- **Infra** — Docker, GitHub Actions
+- **Infra** — Docker, GitHub Actions\
 
 ## Run locally
 

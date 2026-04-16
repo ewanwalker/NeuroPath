@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Scan Viewer - NeuroPath{% endblock %}
+{% block content %}
+<section class="np-section active">
+  <div class="viewer-grid">
+
+    <div class="viewer-pane">
+      <span class="np-placeholder-tag">Viewer</span>
+      <div id="render-container">
+        <img id="brain-render" hidden>
+        <div id="render-placeholder"><span>No scan loaded</span></div>
+      </div>
+      <input type="range" id="slice-slider" min="0" value="0" style="display:none">
+      <div class="controls">
+        <label>
+          Axis
+          <select id="axis-select">
+            <option value="2">Axial (z)</option>
+            <option value="0">Sagittal (x)</option>
+            <option value="1">Coronal (y)</option>
+          </select>
+        </label>
+        <label>
+          Step
+          <input type="number" id="step-input" value="1" min="1" max="10">
+        </label>
+        <label>
+          Convert to .mif
+          <select id="mif-select">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </label>
+      </div>
+      <button id="file-upload" class="upload-button">Upload File</button>
+    </div>
+
+    <div class="viewer-pane">
+      <span class="np-placeholder-tag">Output</span>
+      <p id="output"></p>
+    </div>
+
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/common.js') }}"></script>
+<script src="{{ url_for('static', filename='js/viewer.js') }}"></script>
+{% endblock %}

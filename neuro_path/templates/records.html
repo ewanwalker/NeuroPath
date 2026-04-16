@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Patient Records - NeuroPath{% endblock %}
+
+{% block content %}
+<section class="np-section active">
+  <p class="section-heading">Patient Records</p>
+  <div class="np-placeholder">
+    <span class="np-placeholder-tag">Data</span>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/common.js') }}"></script>
+{% endblock %}

@@ -3,3 +3,6 @@ nibabel
 nilearn
 matplotlib
 numpy
+pandas
+plotly
+sweetviz

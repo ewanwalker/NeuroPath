@@ -5,7 +5,7 @@ services:
       - "8000:8000"
     volumes:
       - app_data:/app/data
-      - ./structural_pipeline.sh:/app/structural_pipeline.sh
+      - ./scripts/structural_pipeline.sh:/app/scripts/structural_pipeline.sh
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
       interval: 10s
